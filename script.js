@@ -119,8 +119,10 @@ let createProductContainer = function createProductDetailContainer(
   productDetails.appendChild(btnRemove);
 
   listItem.appendChild(productDetails);
-  calculateOrderTotal();
-
+  if (cart.length > 0) {
+    totalAmount.innerHTML = "Total: $" + total;
+    totalAmount.style.display = "block";
+  }
   return listItem;
 };
 
@@ -141,7 +143,10 @@ function removeDuplicate(event) {
   badge.innerHTML = cart.length;
 
   rootParent.remove();
-  calculateOrderTotal();
+  if (cart.length > 0) {
+    totalAmount.innerHTML = "Total: $" + total;
+    totalAmount.style.display = "block";
+  }
 }
 
 function calculateOrderTotal() {
