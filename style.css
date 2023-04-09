@@ -1,0 +1,143 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #0f0f10;
+}
+nav {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem 0;
+}
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.card {
+  background-color: #1e1e21;
+  color: #fff;
+  text-align: center;
+  padding: 4rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.product-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.btn-cart {
+  text-decoration: none;
+  color: #fff;
+  padding: 1rem;
+  background-color: #0f0f10;
+  border-radius: 0.5rem;
+}
+.btn-view-cart {
+  text-decoration: none;
+  color: #fff;
+  padding: 1rem;
+  background-color: #0f0f10;
+  border-radius: 0.5rem;
+  /* border: 1px solid #fff; */
+}
+.badge {
+  width: 15px;
+  height: 15px;
+  position: relative;
+  font-size: 0.8rem;
+  font-weight: bold;
+  top: -10px;
+  left: -20px;
+  background-color: red;
+  z-index: 999;
+  border-radius: 50%;
+  text-align: center;
+  color: #fff;
+  display: none;
+  transition: all 0.3s ease-in;
+}
+.cart {
+  width: 350px;
+  background-color: #c3c3c3;
+  min-height: 100vh;
+  position: absolute;
+  right: -300px;
+  z-index: 999;
+  display: none;
+  transition: all 1s ease-in;
+  box-shadow: 0 0 10px #000;
+}
+.show-cart {
+  right: 0;
+  display: block;
+}
+.btn-remove-duplicates {
+  text-decoration: none;
+  color: red;
+  border: 1px solid #000;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  display: none;
+  max-width: 150px;
+  margin: auto;
+}
+
+.btn-close {
+  text-decoration: none;
+  position: relative;
+  top: 10px;
+  left: 10px;
+  color: #000;
+  padding: 0.5rem;
+}
+.cart-list {
+  padding: 0.5rem;
+}
+.list-item {
+  list-style: none;
+  color: #000;
+  padding: 0.5rem;
+  background-color: #fff;
+  margin: 1rem 0;
+}
+.product-details-container {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.product-details-container img {
+  max-width: 75px;
+}
+.product-details-container a {
+  text-decoration: none;
+  color: red;
+  cursor: pointer;
+}
+.total {
+  background-color: #fff;
+  text-align: center;
+  padding: 1rem;
+  width: 95%;
+  margin: auto;
+  display: none;
+}
