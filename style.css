@@ -85,6 +85,10 @@ nav {
   transition: all 1s ease-in;
   box-shadow: 0 0 10px #000;
 }
+.cart h2 {
+  text-align: center;
+  padding: 1rem;
+}
 .show-cart {
   right: 0;
   display: block;

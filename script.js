@@ -68,12 +68,17 @@ btnProduct2.addEventListener("click", (event) => {
   }
 });
 
+//display cart
 btnViewCart.addEventListener("click", () => {
   cartContainer.classList.add("show-cart");
-  console.log(cart);
-  calculateOrderTotal();
+  if (cart.length !== 0) {
+    calculateOrderTotal();
+  } else {
+    totalAmount.innerHTML = "No items in your cart.";
+  }
 });
 
+//close cart
 btnClose.addEventListener("click", () => {
   cartContainer.classList.remove("show-cart");
 });
@@ -113,21 +118,17 @@ let createProductContainer = function createProductDetailContainer(
   btnRemove.setAttribute("class", "btn-remove");
 
   btnRemove.innerHTML =
-    "<i class='fa-regular fa-trash-can' onClick=removeDuplicate(event)></i>";
+    "<i class='fa-regular fa-trash-can' onClick=removeItem(event)></i>";
 
   productDetails.appendChild(contentContainer);
   productDetails.appendChild(btnRemove);
 
   listItem.appendChild(productDetails);
-  if (cart.length > 0) {
-    totalAmount.innerHTML = "Total: $" + total;
-    totalAmount.style.display = "block";
-  }
   return listItem;
 };
 
 //Remove the items on click
-function removeDuplicate(event) {
+function removeItem(event) {
   let target = event.target;
   let parent = target.parentNode;
   let grandParent = parent.parentNode;
@@ -141,21 +142,28 @@ function removeDuplicate(event) {
     cart.splice(product, 1);
   }
   badge.innerHTML = cart.length;
-
-  rootParent.remove();
-  if (cart.length > 0) {
-    totalAmount.innerHTML = "Total: $" + total;
-    totalAmount.style.display = "block";
+  if (cart.length !== 0) {
+    calculateOrderTotal();
+  } else {
+    totalAmount.innerHTML = "No items in your cart.";
   }
+  rootParent.remove();
 }
 
+//calculate total of the order
 function calculateOrderTotal() {
   let total = 0;
-  cart.forEach((element) => {
-    total += parseInt(element.productPrice);
-  });
-  if (cart.length > 0) {
-    totalAmount.innerHTML = "Total: $" + total;
-    totalAmount.style.display = "block";
+  if (cart.length !== 0) {
+    cart.forEach((element) => {
+      total += parseInt(element.productPrice);
+      if (cart.length > 0) {
+        totalAmount.innerHTML = "Total: $" + total;
+        totalAmount.style.display = "block";
+      } else {
+        totalAmount.innerHTML = "No items in your cart.";
+      }
+    });
+  } else {
+    totalAmount.innerHTML = "No items in your cart.";
   }
 }
